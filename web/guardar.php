@@ -1,31 +1,31 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+include_once "connexio.php";
 
-if (empty($_POST["nombre"]) || empty($_POST["descripcion"])) {
-    exit("Datos incompletos");
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $descripcio        = $_POST['descripcio'];
+    $departament       = $_POST['departament'];
+    $tecnic            = $_POST['tecnic'];
+    $tipo              = $_POST['tipo'];
+    $prioritat         = $_POST['prioritat'];
+    $dataFinalitzacio  = $_POST['dataFinalitzacio'] ?: null; // si está vacío, lo dejamos NULL
+
+    $sql = "INSERT INTO INCIDENCIA (descripcio, departament, tecnic, tipo, prioritat, dataFinalitzacio)
+            VALUES (?, ?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("siisss", $descripcio, $departament, $tecnic, $tipo, $prioritat, $dataFinalitzacio);
+
+    if ($stmt->execute()) {
+        // Redirige al listado con mensaje de éxito (vía GET)
+        header("Location: incidencies.php?msg=ok");
+    } else {
+        echo "Error al guardar: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+} else {
+    // Si alguien accede directamente, lo mandamos al formulario
+    header("Location: crear_incidencia.php");
 }
-
-$mysqli = include_once "conexion.php";
-
-if (!$mysqli) {
-    die("Error al conectar con la base de datos");
-}
-
-$nombre = $_POST["nombre"];
-$descripcion = $_POST["descripcion"];
-
-$sentencia = $mysqli->prepare("INSERT INTO videojuegos (nombre, descripcion) VALUES (?, ?)");
-if (!$sentencia) {
-    die("Error en prepare: " . $mysqli->error);
-}
-
-$sentencia->bind_param("ss", $nombre, $descripcion);
-
-if (!$sentencia->execute()) {
-    die("Error al ejecutar: " . $sentencia->error);
-}
-
-//header("Location: listar.php");
-exit;
+?>
