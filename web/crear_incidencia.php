@@ -47,16 +47,7 @@
                     <option value="Corrent">Corrent</option>
                 </select>
             </div>
-
-            <div class="mb-3">
-                <label for="prioritat" class="form-label">Prioritat</label>
-                <select class="form-select" id="prioritat" name="prioritat" required>
-                    <option value="Alta">Alta</option>
-                    <option value="Mitja">Mitja</option>
-                    <option value="Baixa">Baixa</option>
-                </select>
-            </div>
-
+            
             <div class="mb-3">
                 <label for="dataFinalitzacio" class="form-label">Data finalització (opcional)</label>
                 <input type="date" class="form-control" id="dataFinalitzacio" name="dataFinalitzacio">
