@@ -19,10 +19,12 @@ services:
       MYSQL_ROOT_PASSWORD: 12345
       MYSQL_USER: usuari
       MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: persones
       LANG: C.UTF-8
     volumes:
       - db_data:/var/lib/mysql
       - ./db_init:/docker-entrypoint-initdb.d
+
 
   adminer:
     image: adminer
