@@ -1,63 +1,38 @@
+<?php
+include_once "connexio.php";
+
+// Fem la consulta per agafar totes les incidencies
+$resultat = $conn->query("SELECT * FROM INCIDENCIA");
+?>
+
 <?php include_once "header.php"; ?>
-<?php include_once "connexio.php"; ?>
 
-<div class="card mt-4">
-    <div class="card-header bg-danger text-white d-flex justify-content-between">
-        <h3>Llistat d'incidències</h3>
-        <a href="crear_incidencia.php" class="btn btn-light">+ Nova incidència</a>
-    </div>
-    <div class="card-body">
-        <?php if (isset($_GET['msg']) && $_GET['msg'] == 'ok'): ?>
-            <div class="alert alert-success">Incidència creada correctament!</div>
-        <?php endif; ?>
+<h2>Llistat d'Incidències</h2>
+<br>
 
-        <table class="table table-striped table-bordered">
-            <thead class="table-dark">
-                <tr>
-                    <th>ID</th>
-                    <th>Descripció</th>
-                    <th>Departament</th>
-                    <th>Tècnic</th>
-                    <th>Tipus</th>
-                    <th>Prioritat</th>
-                    <th>Data creació</th>
-                    <th>Data finalització</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $sql = "SELECT i.*, d.nom as nom_departament, t.nom as nom_tecnic
-                        FROM INCIDENCIA i
-                        LEFT JOIN DEPARTAMENT d ON i.departament = d.idDepartament
-                        LEFT JOIN TECNIC t ON i.tecnic = t.idTecnic
-                        ORDER BY i.data DESC";
-                $result = $conn->query($sql);
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Títol</th>
+            <th>Descripció</th>
+            <th>Data</th>
+            <th>Prioritat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php while ($incidencia = $resultat->fetch_assoc()): ?>
+            <tr>
+                <td><?php echo $incidencia["idIncidencia"]; ?></td>
+                <td><?php echo $incidencia["titol"]; ?></td>
+                <td><?php echo $incidencia["descripcio"]; ?></td>
+                <td><?php echo $incidencia["data"]; ?></td>
+                <td><?php echo $incidencia["prioritat"]; ?></td>
+            </tr>
+        <?php endwhile; ?>
+    </tbody>
+</table>
 
-                if ($result->num_rows == 0): ?>
-                    <tr>
-                        <td colspan="8" class="text-center">No hi ha incidències registrades.</td>
-                    </tr>
-                <?php else:
-                    while($row = $result->fetch_assoc()): ?>
-                        <td>
-                            <td><?= $row['idIncidencia'] ?></td>
-                            <td><?= htmlspecialchars($row['descripcio']) ?></td>
-                            <td><?= htmlspecialchars($row['nom_departament']) ?></td>
-                            <td><?= htmlspecialchars($row['nom_tecnic']) ?></td>
-                            <td><?= $row['tipo'] ?></td>
-                            <td>
-                                <span class="badge <?= $row['prioritat'] == 'Alta' ? 'bg-danger' : ($row['prioritat'] == 'Mitja' ? 'bg-warning' : 'bg-secondary') ?>">
-                                    <?= $row['prioritat'] ?>
-                                </span>
-                            </td>
-                            <td><?= date('d/m/Y H:i', strtotime($row['data'])) ?></td>
-                            <td><?= $row['dataFinalitzacio'] ? date('d/m/Y', strtotime($row['dataFinalitzacio'])) : '-' ?></td>
-                        </tr>
-                    <?php endwhile;
-                endif; ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+<a href="index.php" class="btn btn-secondary">Tornar</a>
 
 <?php include_once "footer.php"; ?>
