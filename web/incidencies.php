@@ -1,7 +1,6 @@
 <?php
 include_once "connexio.php";
 
-// Fem la consulta per agafar totes les incidencies
 $resultat = $conn->query("SELECT * FROM INCIDENCIA");
 ?>
 
@@ -10,7 +9,7 @@ $resultat = $conn->query("SELECT * FROM INCIDENCIA");
 <h2>Llistat d'Incidències</h2>
 <br>
 
-<table class="table">
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>ID</th>
