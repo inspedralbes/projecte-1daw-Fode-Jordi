@@ -1,6 +1,7 @@
 <footer class="px-2 py-2 fixed-bottom bg-dark">
-        <span class="text-muted">2026 By Fode & Jordi
-            
+        <span class="text-muted">
+            Grup 12 Fode - Jordi
+                1r DAW
         </span>
 </footer>
 
