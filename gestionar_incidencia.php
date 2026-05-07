@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <?php include_once "header.php"; ?>
+<br>
 
 <h2>Gestionar Incidència</h2>
 <br>
@@ -107,4 +108,4 @@ if (!isset($_GET["id"])) {
 }
 ?>
 
-<?php include_once "footer.php"; ?>
+<?php include_once "footer.php"; ?
