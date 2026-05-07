@@ -1,7 +1,6 @@
 <?php
 include_once "connexio.php";
 
-// ESTAT 3: Si s'ha enviat el formulari de tancar
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"];
     $dataFinalitzacio = $_POST["dataFinalitzacio"];
@@ -21,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <br>
 
 <?php
-// ESTAT 1: Si no hi ha ID, mostrem formulari per introduir-lo
 if (!isset($_GET["id"])) {
 ?>
     <form method="GET" action="gestionar_incidencia.php">
@@ -35,7 +33,6 @@ if (!isset($_GET["id"])) {
     </form>
 
 <?php
-// ESTAT 2: Si hi ha ID, mostrem les dades
 } else {
     $id = $_GET["id"];
     $sentencia = $conn->prepare("SELECT * FROM INCIDENCIA WHERE idIncidencia = ?");
