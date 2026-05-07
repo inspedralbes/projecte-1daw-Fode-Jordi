@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <?php include_once "header.php"; ?>
+<br>
 
 <h2>Nova Incidència</h2>
 <br>
@@ -47,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="mb-3">
             <label for="data">Data:</label>
             <br>
-            <input type="date" name="data" id="data" class="form-control" required>
+            <input type="datetime-local" name="data" id="data" class="form-control" required>
         </div>
 
         <div class="mb-3">
