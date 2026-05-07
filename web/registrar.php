@@ -1,11 +1,16 @@
 <?php
-$mysqli = include_once "conexion.php";
-$nombre = $_POST["nombre"];
-$descripcion = $_POST["descripcion"];
-$sentencia = $mysqli->prepare("INSERT INTO videojuegos
-(nombre, descripcion)
-VALUES
-(?, ?)");
-$sentencia->bind_param("ss", $nombre, $descripcion);
+include_once "connexio.php";
+
+$descripcio = $_POST["descripcio"];
+$idDepartament = $_POST["idDepartament"];
+$data = date('Y-m-d H:i:s');
+
+$sentencia = $conn->prepare("INSERT INTO INCIDENCIA (descripcio, data, departament) VALUES (?, ?, ?)");
+$sentencia->bind_param("ssi", $descripcio, $data, $idDepartament);
 $sentencia->execute();
-header("Location: listar.php");
+
+$idIncidencia = $conn->insert_id;
+
+header("Location: listar.php?id=" . $idIncidencia);
+exit();
+?>
