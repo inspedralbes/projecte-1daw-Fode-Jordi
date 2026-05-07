@@ -4,6 +4,7 @@ include_once "connexio.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST["id"];
     $dataFinalitzacio = $_POST["dataFinalitzacio"];
+
     $sentencia = $conn->prepare("UPDATE INCIDENCIA SET dataFinalitzacio = ? WHERE idIncidencia = ?");
     $sentencia->bind_param("si", $dataFinalitzacio, $id);
     $sentencia->execute();
@@ -14,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <?php include_once "header.php"; ?>
-<br>
 
 <h2>Gestionar Incidència</h2>
 <br>
@@ -43,6 +43,7 @@ if (!isset($_GET["id"])) {
 
     if (!$incidencia) {
         echo '<p>No existeix cap incidencia amb aquest codi.</p>';
+        echo '<a href="gestionar_incidencia.php" class="btn btn-secondary">Tornar</a>';
     } else {
 ?>
     <table class="table table-bordered">
@@ -81,6 +82,7 @@ if (!isset($_GET["id"])) {
     </table>
 
     <?php if ($incidencia["dataFinalitzacio"] == NULL): ?>
+
         <h5>Tancar incidència</h5>
         <form method="POST" action="gestionar_incidencia.php">
             <input type="hidden" name="id" value="<?php echo $incidencia["idIncidencia"]; ?>">
@@ -92,9 +94,12 @@ if (!isset($_GET["id"])) {
             <button type="submit" class="btn btn-danger">Tancar incidència</button>
             <a href="index.php" class="btn btn-secondary">Tornar</a>
         </form>
+
     <?php else: ?>
+
         <p>Aquesta incidencia ja esta tancada.</p>
         <a href="index.php" class="btn btn-secondary">Tornar</a>
+
     <?php endif; ?>
 
 <?php
