@@ -32,5 +32,20 @@ services:
       - "8083:8080"
     depends_on:
       - db
+
+  services:
+    mongodb:
+        image: mongodb/mongodb-community-server:latest
+        container_name: mongodb
+        restart: unless-stopped
+        ports:
+            - "27017:27017"
+        volumes:
+            - mongodb:/data/db
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: g12fodejordi
+            MONGO_INITDB_ROOT_PASSWORD: contraseña123
 volumes:
   db_data:
+  mongodb:
+        external: true
