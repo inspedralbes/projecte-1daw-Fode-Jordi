@@ -7,8 +7,8 @@
 
     <div class="d-flex justify-content-center gap-3 mt-4">
 
-            <a href="crear_incidencia.php" class="btn btn-info btn-lg">Professor</a>
-
+            <a href="professor.php" class="btn btn-info btn-lg">Professor</a>
+        
             <a href="tecnic.php" class="btn btn-success btn-lg">Tècnic</a>
 
             <a href="admin.php" class="btn btn-danger btn-lg">Administrador</a>
