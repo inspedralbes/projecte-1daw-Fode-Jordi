@@ -1,21 +1,10 @@
 <?php
 include_once "connexio.php";
 
-$resultat = $conn->query("
-    SELECT 
-        T.nom AS nomTecnic,
-        I.idIncidencia,
-        I.titol,
-        I.data,
-        I.prioritat,
-        SUM(A.temps) AS tempsTotal
-    FROM TECNIC T
-    JOIN INCIDENCIA I ON I.tecnic = T.idTecnic
-    LEFT JOIN ACTUACIO A ON A.incidencia = I.idIncidencia
-    WHERE I.dataFinalitzacio IS NULL
-    GROUP BY T.idTecnic, I.idIncidencia
-    ORDER BY T.nom, FIELD(I.prioritat, 'Alta', 'Mitja', 'Baixa')
-");
+$sort = $_GET['sort'] ?? 'nomTecnic';
+$order = $_GET['order'] ?? 'ASC';
+
+$resultat = $conn->query("SELECT * FROM vista_informe_tecnics ORDER BY $sort $order");
 ?>
 
 <?php include_once "header.php"; ?>
@@ -26,12 +15,28 @@ $resultat = $conn->query("
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th>Tècnic</th>
-            <th>ID Incidència</th>
-            <th>Títol</th>
-            <th>Data inici</th>
-            <th>Prioritat</th>
-            <th>Temps total (minuts)</th>
+            <th>
+                Tècnic
+                <a href="?sort=nomTecnic&order=asc">↑</a>
+                <a href="?sort=nomTecnic&order=desc">↓</a>
+            </th>
+            <th>ID</th>
+            <th>Descripció</th>
+            <th>
+                Data inici
+                <a href="?sort=dataInici&order=asc">↑</a>
+                <a href="?sort=dataInici&order=desc">↓</a>
+            </th>
+            <th>
+                Prioritat
+                <a href="?sort=prioritat&order=asc">↑</a>
+                <a href="?sort=prioritat&order=desc">↓</a>
+            </th>
+            <th>
+                Temps total (min)
+                <a href="?sort=tempsTotalDedicat&order=asc">↑</a>
+                <a href="?sort=tempsTotalDedicat&order=desc">↓</a>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -48,10 +53,10 @@ $resultat = $conn->query("
             <tr class="<?php echo $color; ?>">
                 <td><?php echo $fila["nomTecnic"]; ?></td>
                 <td><?php echo $fila["idIncidencia"]; ?></td>
-                <td><?php echo $fila["titol"]; ?></td>
-                <td><?php echo $fila["data"]; ?></td>
+                <td><?php echo $fila["descripcioIncidencia"]; ?></td>
+                <td><?php echo $fila["dataInici"]; ?></td>
                 <td><?php echo $fila["prioritat"]; ?></td>
-                <td><?php echo $fila["tempsTotal"] ? $fila["tempsTotal"] : "0"; ?></td>
+                <td><?php echo $fila["tempsTotalDedicat"]; ?></td>
             </tr>
         <?php endwhile; ?>
     </tbody>
