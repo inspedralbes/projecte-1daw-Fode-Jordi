@@ -1,7 +1,6 @@
 <?php
 include_once "connexio.php";
 
-// Nomes incidencies obertes, ordenades per prioritat
 $resultat = $conn->query("SELECT * FROM INCIDENCIA WHERE dataFinalitzacio IS NULL ORDER BY FIELD(prioritat, 'Alta', 'Mitja', 'Baixa')");
 ?>
 
