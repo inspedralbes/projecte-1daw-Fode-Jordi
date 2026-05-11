@@ -75,5 +75,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
 <?php endif; ?>
+<script>
+document.querySelector("form[method='POST']").addEventListener("submit", function(e) {
+    const descripcio = document.getElementById("descripcio").value.trim();
 
+    if (descripcio.length < 20) {
+        e.preventDefault();
+        alert("La descripció ha de tenir almenys 20 caràcters.");
+    }
+});
+</script>
 <?php include_once "footer.php"; ?>
