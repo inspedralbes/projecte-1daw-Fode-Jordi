@@ -22,7 +22,6 @@ $resultat = $conn->query("SELECT * FROM INCIDENCIA WHERE dataFinalitzacio IS NUL
     <tbody>
         <?php while ($incidencia = $resultat->fetch_assoc()): ?>
             <?php
-            // Color de la fila segons prioritat
             if ($incidencia["prioritat"] == "Alta") {
                 $color = "table-danger";
             } elseif ($incidencia["prioritat"] == "Mitja") {
