@@ -33,19 +33,18 @@ services:
     depends_on:
       - db
 
-  services:
-    mongodb:
-        image: mongodb/mongodb-community-server:latest
-        container_name: mongodb
-        restart: unless-stopped
-        ports:
-            - "27017:27017"
-        volumes:
-            - mongodb:/data/db
-        environment:
-            MONGO_INITDB_ROOT_USERNAME: g12fodejordi
-            MONGO_INITDB_ROOT_PASSWORD: contraseña123
+  mongodb:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: usuari
+      MONGO_INITDB_ROOT_PASSWORD: 12345
+
 volumes:
   db_data:
-  mongodb:
-        external: true
+  mongodb_data:
