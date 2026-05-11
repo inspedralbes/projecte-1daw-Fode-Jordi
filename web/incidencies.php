@@ -1,12 +1,13 @@
 <?php
 include_once "connexio.php";
 
-$resultat = $conn->query("SELECT * FROM INCIDENCIA");
+// Nomes incidencies obertes, ordenades per prioritat
+$resultat = $conn->query("SELECT * FROM INCIDENCIA WHERE dataFinalitzacio IS NULL ORDER BY FIELD(prioritat, 'Alta', 'Mitja', 'Baixa')");
 ?>
 
 <?php include_once "header.php"; ?>
 
-<h2>Llistat d'Incidències</h2>
+<h2>Llistat d'Incidències Obertes</h2>
 <br>
 
 <table class="table table-bordered">
@@ -21,7 +22,17 @@ $resultat = $conn->query("SELECT * FROM INCIDENCIA");
     </thead>
     <tbody>
         <?php while ($incidencia = $resultat->fetch_assoc()): ?>
-            <tr>
+            <?php
+            // Color de la fila segons prioritat
+            if ($incidencia["prioritat"] == "Alta") {
+                $color = "table-danger";
+            } elseif ($incidencia["prioritat"] == "Mitja") {
+                $color = "table-warning";
+            } else {
+                $color = "table-success";
+            }
+            ?>
+            <tr class="<?php echo $color; ?>">
                 <td><?php echo $incidencia["idIncidencia"]; ?></td>
                 <td><?php echo $incidencia["titol"]; ?></td>
                 <td><?php echo $incidencia["descripcio"]; ?></td>
@@ -32,6 +43,8 @@ $resultat = $conn->query("SELECT * FROM INCIDENCIA");
     </tbody>
 </table>
 
-<a href="index.php" class="btn btn-secondary">Tornar</a>
+<a href="admin.php" class="btn btn-secondary">Tornar</a>
+
+<?php include_once "footer.php"; ?>
 
 <?php include_once "footer.php"; ?>
