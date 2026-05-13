@@ -1,4 +1,5 @@
 <?php
+require_once 'logger.php';
 include_once "connexio.php";
 
 $idTecnic = $_GET["id"];
