@@ -1,4 +1,5 @@
 <?php
+require_once 'logger.php';
 include_once "connexio.php";
 
 $tecnics = $conn->query("SELECT * FROM TECNIC");
