@@ -1,4 +1,7 @@
-<?php include_once "header.php"; ?>
+<?php 
+require_once 'logger.php';
+include_once "header.php"; 
+?>
 
 <h2>Estat de la Incidència</h2>
 <br>
