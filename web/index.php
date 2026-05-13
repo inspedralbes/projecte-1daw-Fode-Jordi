@@ -1,4 +1,7 @@
-<?php include_once "header.php"; ?>
+<?php 
+require_once 'logger.php';
+include_once "header.php"; 
+?>
 
 <div class="text-center mt-5">
 
