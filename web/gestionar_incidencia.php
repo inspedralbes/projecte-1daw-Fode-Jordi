@@ -109,4 +109,4 @@ if (!isset($_GET["id"])) {
 }
 ?>
 
-<?php include_once "footer.php"; ?
+<?php include_once "footer.php"; ?>
