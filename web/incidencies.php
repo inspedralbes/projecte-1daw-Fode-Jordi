@@ -1,4 +1,5 @@
 <?php
+require_once 'logger.php';
 include_once "connexio.php";
 
 $resultat = $conn->query("SELECT * FROM INCIDENCIA WHERE dataFinalitzacio IS NULL ORDER BY FIELD(prioritat, 'Alta', 'Mitja', 'Baixa')");
