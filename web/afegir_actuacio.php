@@ -95,5 +95,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <?php endif; ?>
 <?php endif; ?>
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+    const campos = document.querySelectorAll("input, select, textarea");
+    for (let campo of campos) {
+        if (!campo.value.trim()) {
+            e.preventDefault();
+            alert("Tots els camps son obligatoris.");
+            return;
+        }
+    }
+});
+</script>
 
 <?php include_once "footer.php"; ?>
