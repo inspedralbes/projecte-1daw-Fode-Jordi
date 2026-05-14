@@ -1,7 +1,8 @@
-<?php 
+<?php  
 require_once 'logger.php';
 include_once "header.php"; 
 ?>
+
 
 <div class="text-center mt-5">
 
@@ -13,6 +14,7 @@ include_once "header.php";
         <a href="modificar_incidencia.php" class="btn btn-danger btn-lg">Modificar incidència</a>
         <a href="informe_tecnics.php" class="btn btn-warning btn-lg">Informe tècnics</a>
         <a href="informe_departaments.php" class="btn btn-warning btn-lg">Consum departaments</a>
+        <a href="estadistiques.php" class="btn btn-warning btn-lg">Estadístiques d'accés</a>
     </div>
 
     <br>
