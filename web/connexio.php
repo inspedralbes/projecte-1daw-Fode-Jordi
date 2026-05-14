@@ -1,5 +1,4 @@
 <?php
-// Configuració de la connexió a la base de dades
 $servername = "db"; // Nom del servei definit al docker-compose.yaml
 $username = "usuari"; // Usuari definit al docker-compose.yaml
 $password = "12345"; // Contrasenya definida al docker-compose.yaml

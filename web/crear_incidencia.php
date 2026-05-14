@@ -1,5 +1,4 @@
 <?php
-require_once 'logger.php';
 include_once "connexio.php";
 
 $departaments = $conn->query("SELECT * FROM DEPARTAMENT");
@@ -13,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($titol) || empty($descripcio) || empty($idDepartament) || empty($data)) {
         echo '<p>Tots els camps son obligatoris.</p>';
+        
     } else {
         $sentencia = $conn->prepare("INSERT INTO INCIDENCIA (titol, descripcio, data, departament) VALUES (?, ?, ?, ?)");
         $sentencia->bind_param("sssi", $titol, $descripcio, $data, $idDepartament);
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php if ($enviado): ?>
 
     <p>Incidencia creada! El teu codi es: <strong><?php echo $idNova; ?></strong></p>
-    <a href="index.php" class="btn btn-secondary">Tornar</a>
+    <a href="professor.php" class="btn btn-secondary">Tornar</a>
     <a href="crear_incidencia.php" class="btn btn-primary">Registrar una nova incidencia</a>
 
 <?php else: ?>
@@ -70,20 +70,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea name="descripcio" id="descripcio" class="form-control" rows="4" placeholder="Descriu la incidència amb detall" required></textarea>
         </div>
 
-        <a href="index.php" class="btn btn-secondary">Tornar</a>
+        <a href="professor.php" class="btn btn-secondary">Tornar</a>
         <button type="submit" class="btn btn-primary">Enviar</button>
 
     </form>
 
 <?php endif; ?>
-
 <script>
-document.querySelector("form[method='POST']").addEventListener("submit", function(e) {
-    const descripcio = document.getElementById("descripcio").value.trim();
-
-    if (descripcio.length < 20) {
-        e.preventDefault();
-        alert("La descripció ha de tenir almenys 20 caràcters.");
+document.querySelector("form").addEventListener("submit", function(e) {
+    const campos = document.querySelectorAll("input, select, textarea");
+    for (let campo of campos) {
+        if (!campo.value.trim()) {
+            e.preventDefault();
+            alert("Tots els camps son obligatoris.");
+            return;
+        }
     }
 });
 </script>
