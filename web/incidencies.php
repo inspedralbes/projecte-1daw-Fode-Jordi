@@ -31,8 +31,8 @@ $resultat = $conn->query("SELECT * FROM INCIDENCIA WHERE dataFinalitzacio IS NUL
                     <?php while ($incidencia = $resultat->fetch_assoc()): ?>
                         <tr>
                             <td class="fw-bold text-muted">#<?php echo $incidencia["idIncidencia"]; ?></td>
-                            <td><?php echo htmlspecialchars($incidencia["titol"]); ?></td>
-                            <td class="text-muted"><?php echo htmlspecialchars($incidencia["descripcio"]); ?></td>
+                            <td><?php echo htmlspecialchars($incidencia["titol"] ?? ''); ?></td>
+                            <td class="text-muted"><?php echo htmlspecialchars($incidencia["descripcio"] ?? ''); ?></td>
                             <td><i class="bi bi-calendar3"></i> <?php echo $incidencia["data"]; ?></td>
                             <td>
                                 <?php
