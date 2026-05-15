@@ -100,7 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         ?>
 
-        <!-- Detall incidència -->
         <div class="card shadow-sm mb-4">
             <div class="card-header bg-dark text-white">
                 <i class="bi bi-file-earmark-text"></i>
@@ -132,7 +131,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
 
-        <!-- Formulari nova actuació -->
         <div class="row">
             <div class="col-md-7">
                 <div class="card shadow-sm mb-4">
