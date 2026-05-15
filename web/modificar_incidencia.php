@@ -90,7 +90,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <?php else: ?>
 
-        <!-- Detall actual de la incidència -->
         <div class="card shadow-sm mb-4">
             <div class="card-header bg-dark text-white">
                 <i class="bi bi-file-earmark-text"></i>
@@ -118,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
 
-        <!-- Formulari de modificació -->
+
         <div class="card shadow-sm mb-4">
             <div class="card-header bg-dark text-white">
                 <i class="bi bi-pencil"></i> Modificar dades
@@ -131,9 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="prioritat" class="form-label text-muted">Prioritat</label>
                         <select name="prioritat" id="prioritat" class="form-select" required>
                             <option value="">-- Selecciona prioritat --</option>
-                            <option value="Alta" <?php if ($incidencia["prioritat"] == "Alta") echo "selected"; ?>>🔴 Alta</option>
-                            <option value="Mitja" <?php if ($incidencia["prioritat"] == "Mitja") echo "selected"; ?>>🟡 Mitja</option>
-                            <option value="Baixa" <?php if ($incidencia["prioritat"] == "Baixa") echo "selected"; ?>>🟢 Baixa</option>
+                            <option value="Alta" <?php if ($incidencia["prioritat"] == "Alta") echo "selected"; ?>> Alta</option>
+                            <option value="Mitja" <?php if ($incidencia["prioritat"] == "Mitja") echo "selected"; ?>> Mitja</option>
+                            <option value="Baixa" <?php if ($incidencia["prioritat"] == "Baixa") echo "selected"; ?>> Baixa</option>
                         </select>
                     </div>
 
@@ -141,10 +140,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="tipo" class="form-label text-muted">Tipus</label>
                         <select name="tipo" id="tipo" class="form-select" required>
                             <option value="">-- Selecciona tipus --</option>
-                            <option value="Software" <?php if ($incidencia["tipo"] == "Software") echo "selected"; ?>>💻 Software</option>
-                            <option value="Hardware" <?php if ($incidencia["tipo"] == "Hardware") echo "selected"; ?>>🖥️ Hardware</option>
-                            <option value="Internet" <?php if ($incidencia["tipo"] == "Internet") echo "selected"; ?>>🌐 Internet</option>
-                            <option value="Corrent" <?php if ($incidencia["tipo"] == "Corrent") echo "selected"; ?>>⚡ Corrent</option>
+                            <option value="Software" <?php if ($incidencia["tipo"] == "Software") echo "selected"; ?>> Software</option>
+                            <option value="Hardware" <?php if ($incidencia["tipo"] == "Hardware") echo "selected"; ?>> Hardware</option>
+                            <option value="Internet" <?php if ($incidencia["tipo"] == "Internet") echo "selected"; ?>> Internet</option>
+                            <option value="Corrent" <?php if ($incidencia["tipo"] == "Corrent") echo "selected"; ?>> Corrent</option>
                         </select>
                     </div>
 
@@ -154,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <option value="">-- Selecciona tècnic --</option>
                             <?php while ($tec = $tecnics->fetch_assoc()): ?>
                                 <option value="<?php echo $tec["idTecnic"]; ?>" <?php if ($incidencia["tecnic"] == $tec["idTecnic"]) echo "selected"; ?>>
-                                    👤 <?php echo htmlspecialchars($tec["nom"]); ?>
+                                     <?php echo htmlspecialchars($tec["nom"]); ?>
                                 </option>
                             <?php endwhile; ?>
                         </select>
@@ -174,6 +173,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <?php endif; ?>
+    <?php endif; ?>
+
+</div>
+
+<?php include_once "footer.php"; ?>
     <?php endif; ?>
 
 </div>
