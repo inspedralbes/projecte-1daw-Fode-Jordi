@@ -3,27 +3,12 @@ require_once 'logger.php';
 include_once "header.php"; 
 ?>
 
-<<<<<<< Updated upstream
-
-<div class="text-center mt-5">
-
-    <h2>Panel d'Administrador</h2>
-    <br>
-
-    <div class="d-flex justify-content-center gap-3">
-        <a href="incidencies.php" class="btn btn-danger btn-lg">Llistat d'incidències</a>
-        <a href="modificar_incidencia.php" class="btn btn-danger btn-lg">Modificar incidència</a>
-        <a href="informe_tecnics.php" class="btn btn-warning btn-lg">Informe tècnics</a>
-        <a href="informe_departaments.php" class="btn btn-warning btn-lg">Consum departaments</a>
-        <a href="estadistiques.php" class="btn btn-warning btn-lg">Estadístiques d'accés</a>
-=======
 <div class="container mt-4">
 
     <div class="text-center mb-5">
         <h2><i class="bi bi-shield-lock"></i> Panel d'Administrador</h2>
         <p class="text-muted">Gestiona les incidències i consulta els informes del sistema</p>
         <hr>
->>>>>>> Stashed changes
     </div>
 
     <h5 class="text-secondary mb-3"><i class="bi bi-exclamation-triangle"></i> Gestió d'Incidències</h5>
