@@ -10,7 +10,6 @@ $pagines = $collection->aggregate([
     ['$sort' => ['total' => -1]],
     ['$limit' => 10]
 ]);
-<<<<<<< Updated upstream
 
 $usuaris = $collection->aggregate([
     ['$match' => ['usuari' => ['$ne' => null]]],
@@ -27,75 +26,6 @@ $perDia = $collection->aggregate([
     ['$sort' => ['_id' => 1]]
 ]);
 ?>
-<br>
-<h2>Estadístiques d'Accés</h2>
-<br>
-
-<p><strong>Total d'accessos:</strong> <?php echo $total; ?></p>
-<br>
-
-<h5>Pàgines més visitades</h5>
-<table class="table table-bordered">
-    <thead>
-        <tr><th>URL</th><th>Visites</th></tr>
-    </thead>
-    <tbody>
-        <?php foreach ($pagines as $p): ?>
-            <tr>
-                <td><?php echo $p['_id']; ?></td>
-                <td><?php echo $p['total']; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
-<h5>Usuaris més actius</h5>
-<table class="table table-bordered">
-    <thead>
-        <tr><th>Usuari</th><th>Accessos</th></tr>
-    </thead>
-    <tbody>
-        <?php foreach ($usuaris as $u): ?>
-            <tr>
-                <td><?php echo $u['_id']; ?></td>
-                <td><?php echo $u['total']; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-
-<h5>Accessos per dia</h5>
-<table class="table table-bordered">
-    <thead>
-        <tr><th>Dia</th><th>Accessos</th></tr>
-    </thead>
-    <tbody>
-        <?php foreach ($perDia as $d): ?>
-            <tr>
-                <td><?php echo $d['_id']; ?></td>
-                <td><?php echo $d['total']; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-=======
-
-$usuaris = $collection->aggregate([
-    ['$match' => ['usuari' => ['$ne' => null]]],
-    ['$group' => ['_id' => '$usuari', 'total' => ['$sum' => 1]]],
-    ['$sort' => ['total' => -1]],
-    ['$limit' => 10]
-]);
-
-$perDia = $collection->aggregate([
-    ['$group' => [
-        '_id' => ['$substr' => ['$timestamp', 0, 10]],
-        'total' => ['$sum' => 1]
-    ]],
-    ['$sort' => ['_id' => 1]]
-]);
-?>
->>>>>>> Stashed changes
 
 <div class="container mt-4">
 
@@ -105,7 +35,6 @@ $perDia = $collection->aggregate([
         <hr>
     </div>
 
-    <!-- Targeta total accessos -->
     <div class="row mb-5">
         <div class="col-md-4">
             <div class="card shadow-sm border-0 bg-dark text-white">
@@ -118,7 +47,7 @@ $perDia = $collection->aggregate([
         </div>
     </div>
 
-    <!-- Pàgines més visitades -->
+
     <div class="mb-5">
         <h5 class="mb-3"><i class="bi bi-link-45deg"></i> Pàgines més visitades</h5>
         <div class="card shadow-sm">
@@ -147,7 +76,6 @@ $perDia = $collection->aggregate([
         </div>
     </div>
 
-    <!-- Usuaris més actius -->
     <div class="mb-5">
         <h5 class="mb-3"><i class="bi bi-people"></i> Usuaris més actius</h5>
         <div class="card shadow-sm">
@@ -179,7 +107,6 @@ $perDia = $collection->aggregate([
         </div>
     </div>
 
-    <!-- Accessos per dia -->
     <div class="mb-5">
         <h5 class="mb-3"><i class="bi bi-calendar3"></i> Accessos per dia</h5>
         <div class="card shadow-sm">
@@ -217,4 +144,4 @@ $perDia = $collection->aggregate([
 </div>
 
 <?php include_once 'footer.php'; ?>
-<?php include_once 'footer.php'; ?>
+
