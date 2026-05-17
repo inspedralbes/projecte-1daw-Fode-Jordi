@@ -70,8 +70,9 @@ MONGODB_URI=mongodb://mongo:27017
 
 # URLS DEL PROJECTE
 
-## 🎨 Prototipatge / Wireframing
 
+## 🎨 Prototipatge / Wireframing
+https://design.penpot.app/#/view?file-id=d59e570a-957f-8047-8007-eed93bd8e2e4&page-id=d59e570a-957f-8047-8007-eed93bd8e2e5&section=interactions&index=0&share-id=bdb38471-86c5-8118-8008-09361b10723d
 
 ## 🌐 Projecte desplegat
 
