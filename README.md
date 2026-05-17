@@ -1,16 +1,77 @@
-# transversals
-Esquema mínim de carpetes pels projectes transversals
+APLICACIÓ DE GESTIÓ D’INCIDÈNCIES INFORMÀTIQUES
 
-És obligatori seguir aquesta estructura tot i que la podeu ampliar.
+La finalitat d’aquest projecte és desenvolupar una aplicació web que permeti registrar i gestionar incidències informàtiques dins d’una empresa o institut.
 
-## Atenció
-Un cop comenceu heu de canviar aquesta explicació amb la corresponent al vostre projecte (utilitzant markdown)
+Els usuaris podran crear incidències indicant el departament i una descripció del problema. L'Administrador podrà assignar-les a tècnics, establir prioritats i gestionar-ne el seguiment. Els tècnics registraran les actuacions realitzades i el temps dedicat a cada incidència.
 
-# Aquest fitxer ha de contenir com a mínim:
- * Nom dels integrants
- * Nom del projecte
- * Petita descripció
- * Adreça del gestor de tasques (taiga, jira, trello...)
- * Adreça del prototip gràfic del projecte (Penpot, figma, moqups...)
- * URL de producció (quan la tingueu)
- * Estat: (explicació d'en quin punt està)
+També s’inclou un sistema d’estadístiques d’accés i logs utilitzant MongoDB.
+
+GRUP
+grup 12
+
+INTEGRANTS
+Fode Konte 
+Jordi Mendoza
+
+GESTOR DE TASQUES
+
+Per gestionar els sprints i repartir les tasques utilitzarem Taiga.
+
+FUNCIONALITATS PRINCIPALS
+👤 Usuari
+Registrar noves incidències
+Consultar l’estat d’una incidència
+Visualitzar actuacions visibles
+🛠️ Responsable Informàtic
+Assignar incidències a tècnics
+Assignar prioritats
+Classificar incidències
+👨‍💻 Tècnic
+Registrar actuacions
+Afegir temps dedicat
+Finalitzar incidències
+📊 Administrador
+Consultar estadístiques d’accés
+Visualitzar logs i gràfics
+TECNOLOGIES UTILITZADES
+PHP
+HTML / CSS
+JavaScript
+Bootstrap
+MySQL
+MongoDB
+Chart.js
+ENTORN DE DESENVOLUPAMENT
+
+El projecte utilitza un entorn Docker compost per:
+
+Apache + PHP
+MySQL
+MongoDB
+Adminer
+Mongo Express
+
+Per iniciar el projecte:
+
+docker compose up
+
+Accés local:
+
+Aplicació web → http://localhost:8081
+Adminer → http://localhost:8082
+Mongo Express → http://localhost:8084
+CONFIGURACIÓ (.env)
+
+La connexió a les bases de dades es configura mitjançant variables d’entorn.
+
+MYSQL_USER=user
+MYSQL_PASSWORD=password
+MYSQL_ROOT_PASSWORD=rootpassword
+MONGODB_URI=mongodb://mongo:27017
+
+URLS DEL PROJECTE
+🎨 Prototipatge / Wireframing
+
+
+🌐 Projecte desplegat
+g12.daw.inspedralbes.cat
