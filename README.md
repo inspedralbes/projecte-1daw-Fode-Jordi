@@ -1,4 +1,4 @@
-#APLICACIÓ DE GESTIÓ D’INCIDÈNCIES INFORMÀTIQUES#
+# APLICACIÓ DE GESTIÓ D’INCIDÈNCIES INFORMÀTIQUES
 
 La finalitat d’aquest projecte és desenvolupar una aplicació web que permeti registrar i gestionar incidències informàtiques dins d’una empresa o institut.
 
@@ -6,46 +6,57 @@ Els usuaris podran crear incidències indicant el departament i una descripció 
 
 També s’inclou un sistema d’estadístiques d’accés i logs utilitzant MongoDB.
 
-#GRUP#
-grup 12
+# GRUP
 
-#INTEGRANTS#
-Fode Konte 
-Jordi Mendoza
+Grup 12
 
-#FUNCIONALITATS PRINCIPALS#
-#👤 Usuari#
-Registrar noves incidències
-Consultar l’estat d’una incidència
-Visualitzar actuacions visibles
-#🛠️ Responsable Informàtic#
-Assignar incidències a tècnics
-Assignar prioritats
-Classificar incidències
-#👨‍💻 Tècnic#
-Registrar actuacions
-Afegir temps dedicat
-Finalitzar incidències
-#📊 Administrador#
-Consultar estadístiques d’accés
-Visualitzar logs i gràfics
+# INTEGRANTS
 
-#TECNOLOGIES UTILITZADES#
-PHP
-HTML / CSS
-JavaScript
-Bootstrap
-MySQL
-MongoDB
-Chart.js
-#ENTORN DE DESENVOLUPAMENT#
+- Fode Konte  
+- Jordi Mendoza
 
-Accés local:
+# FUNCIONALITATS PRINCIPALS
 
-Aplicació web → http://localhost:8081
-Adminer → http://localhost:8082
-Mongo Express → http://localhost:8084
-CONFIGURACIÓ (.env)
+## 👤 Usuari
+- Registrar noves incidències
+- Consultar l’estat d’una incidència
+- Visualitzar actuacions visibles
+
+## 🛠️ Responsable Informàtic
+- Assignar incidències a tècnics
+- Assignar prioritats
+- Classificar incidències
+
+## 👨‍💻 Tècnic
+- Registrar actuacions
+- Afegir temps dedicat
+- Finalitzar incidències
+
+## 📊 Administrador
+- Consultar estadístiques d’accés
+- Visualitzar logs i gràfics
+
+
+# TECNOLOGIES UTILITZADES
+
+- PHP
+- HTML / CSS
+- JavaScript
+- Bootstrap
+- MySQL
+- MongoDB
+- Chart.js
+
+# ENTORN DE DESENVOLUPAMENT
+
+## Accés local
+
+- Aplicació web → http://localhost:8081
+- Adminer → http://localhost:8082
+- Mongo Express → http://localhost:8084
+
+
+# CONFIGURACIÓ (.env)
 
 La connexió a les bases de dades es configura mitjançant variables d’entorn.
 
@@ -54,9 +65,11 @@ MYSQL_PASSWORD=password
 MYSQL_ROOT_PASSWORD=rootpassword
 MONGODB_URI=mongodb://mongo:27017
 
-#URLS DEL PROJECTE#
-🎨 Prototipatge / Wireframing
+# URLS DEL PROJECTE
+
+## 🎨 Prototipatge / Wireframing
 
 
-#🌐 Projecte desplegat#   
+## 🌐 Projecte desplegat
+
 g12.daw.inspedralbes.cat
