@@ -1,4 +1,4 @@
-APLICACIÓ DE GESTIÓ D’INCIDÈNCIES INFORMÀTIQUES
+#APLICACIÓ DE GESTIÓ D’INCIDÈNCIES INFORMÀTIQUES#
 
 La finalitat d’aquest projecte és desenvolupar una aplicació web que permeti registrar i gestionar incidències informàtiques dins d’una empresa o institut.
 
@@ -6,34 +6,31 @@ Els usuaris podran crear incidències indicant el departament i una descripció 
 
 També s’inclou un sistema d’estadístiques d’accés i logs utilitzant MongoDB.
 
-GRUP
+#GRUP#
 grup 12
 
-INTEGRANTS
+#INTEGRANTS#
 Fode Konte 
 Jordi Mendoza
 
-GESTOR DE TASQUES
-
-Per gestionar els sprints i repartir les tasques utilitzarem Taiga.
-
-FUNCIONALITATS PRINCIPALS
-👤 Usuari
+#FUNCIONALITATS PRINCIPALS#
+#👤 Usuari#
 Registrar noves incidències
 Consultar l’estat d’una incidència
 Visualitzar actuacions visibles
-🛠️ Responsable Informàtic
+#🛠️ Responsable Informàtic#
 Assignar incidències a tècnics
 Assignar prioritats
 Classificar incidències
-👨‍💻 Tècnic
+#👨‍💻 Tècnic#
 Registrar actuacions
 Afegir temps dedicat
 Finalitzar incidències
-📊 Administrador
+#📊 Administrador#
 Consultar estadístiques d’accés
 Visualitzar logs i gràfics
-TECNOLOGIES UTILITZADES
+
+#TECNOLOGIES UTILITZADES#
 PHP
 HTML / CSS
 JavaScript
@@ -41,19 +38,7 @@ Bootstrap
 MySQL
 MongoDB
 Chart.js
-ENTORN DE DESENVOLUPAMENT
-
-El projecte utilitza un entorn Docker compost per:
-
-Apache + PHP
-MySQL
-MongoDB
-Adminer
-Mongo Express
-
-Per iniciar el projecte:
-
-docker compose up
+#ENTORN DE DESENVOLUPAMENT#
 
 Accés local:
 
@@ -69,9 +54,9 @@ MYSQL_PASSWORD=password
 MYSQL_ROOT_PASSWORD=rootpassword
 MONGODB_URI=mongodb://mongo:27017
 
-URLS DEL PROJECTE
+#URLS DEL PROJECTE#
 🎨 Prototipatge / Wireframing
 
 
-🌐 Projecte desplegat
+#🌐 Projecte desplegat#   
 g12.daw.inspedralbes.cat
