@@ -61,8 +61,11 @@ Grup 12
 La connexió a les bases de dades es configura mitjançant variables d’entorn.
 
 MYSQL_USER=user
+
 MYSQL_PASSWORD=password
+
 MYSQL_ROOT_PASSWORD=rootpassword
+
 MONGODB_URI=mongodb://mongo:27017
 
 # URLS DEL PROJECTE
