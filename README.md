@@ -75,4 +75,4 @@ MONGODB_URI=mongodb://mongo:27017
 
 ## 🌐 Projecte desplegat
 
-g12.daw.inspedralbes.cat
+https://g12.daw.inspedralbes.cat
