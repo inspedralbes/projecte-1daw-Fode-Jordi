@@ -1,0 +1,36 @@
+connexio.php
+<?php
+require 'vendor/autoload.php';
+
+$host = getenv('MONGO_HOST') ?: 'mongo';
+$port = getenv('MONGO_PORT') ?: '27017';
+$user = getenv('MONGO_USER') ?: 'root';
+$password = getenv('MONGO_PASSWORD') ?: 'example';
+$database = getenv('MONGO_DB') ?: 'demo';
+
+$uri = "mongodb+srv://a25jormenlaz_db_user:2RdPcA2VQ8aCHJdy@cluster0.6yda54u.mo>
+$client = new MongoDB\Client($uri);
+$db = $client->$database;
+$collection = $db->logs;
+
+return $db;
+
+
+logger.php
+<?php
+require_once 'connexio_mongo.php';
+
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$url = $_SERVER['REQUEST_URI'] ?? 'unknown';
+$metode = $_SERVER['REQUEST_METHOD'] ?? 'unknown';
+$navegador = $_SERVER['HTTP_USER_AGENT'] ?? 'unknown';
+$timestamp = date("Y-m-d H:i:s");
+
+$collection->insertOne([
+    'url'       => $url,
+    'metode'    => $metode,
+    'usuari'    => null,
+    'timestamp' => $timestamp,
+    'navegador' => $navegador,
+    'ip'        => $ip
+]);
